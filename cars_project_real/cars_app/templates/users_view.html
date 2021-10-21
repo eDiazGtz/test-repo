@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View User {{user.id}}</title>
+</head>
+<body>
+    <h1>View User {{user.id}}</h1>
+    <a href="/users">Users Dash</a>
+    
+    <h4>ID : {{user.id}}</h4>
+    <h4>NAME: {{user.first_name}} {{user.last_name}}</h4>
+    <h4>EMAIL : {{user.email}}</h4>
+
+    {% if user.cars %}
+    <h4>{{user.first_name}}'s Cars</h4>
+    <ul>
+        {% for car in user.cars %}
+            <li>{{car.color}} {{car.year}} {{car.maker.name}}</li>
+        {% endfor %}
+    </ul>
+    
+    {% else %}
+    <h4>{{user.first_name}} doesn't own any Cars</h4>
+    {% endif %}
+    
+</body>
+</html>

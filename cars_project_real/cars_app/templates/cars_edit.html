@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit a Car</title>
+</head>
+<body>
+    <h1>Edit Your Car</h1>
+
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/cars/{{car.id}}/update" method="POST">
+
+        <label for="color">Color: </label>
+        <input type="text" name="color" value="{{car.color}}">
+        
+        <label for="year">Year: </label>
+        <input type="text" name="year" value="{{car.year}}">
+        
+        <input type="hidden" name="maker_id" value="1">        
+
+        <input type="submit" value="Update Car">
+    </form>
+
+    <a href="/cars/{{car.id}}">Cancel</a>
+</body>
+</html>

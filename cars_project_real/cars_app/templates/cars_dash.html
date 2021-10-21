@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Cars Website, {{user.first_name}}!</h1>
+        <a href="/cars/new">Create a Car</a>
+        <a href="/logout" class="btn btn-warning">Logout</a>
+
+        <table class="table table-success">
+            <thead>
+                <th>ID</th>
+                <th>Color</th>
+                <th>Year</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                <tr>
+                    <td>{{car.id}}</td>
+                    <td>{{car.color}}</td>
+                    <td>{{car.year}}</td>
+                    <td>
+                        <a href="/cars/{{car.id}}">View</a> | 
+                        <a href="/cars/{{car.id}}/edit">Edit</a> | 
+                        <a href="/cars/{{car.id}}/destroy">Delete</a> 
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</body>
+</html>

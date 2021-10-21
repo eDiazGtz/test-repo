@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Car {{car.id}}</title>
+</head>
+<body>
+    <h1>View Car {{car.id}}</h1>
+    <a href="/cars">Cars Dash</a>
+
+    <h4>ID: {{car.id}}</h4>
+    <h4>COLOR: {{car.color}}</h4>
+    <h4>YEAR: {{car.year}}</h4>
+    <h4>MAKE: {{car.maker.name}}</h4>
+    <h4>OWNER: {{car.user.first_name}} {{car.user.last_name}}</h4>
+
+    <a href="/cars/{{car.id}}/edit">Edit this Car</a> | 
+    <a href="/cars/{{car.id}}/destroy">Delete this Car</a>
+</body>
+</html>
